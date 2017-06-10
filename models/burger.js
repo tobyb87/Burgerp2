@@ -1,14 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
   var Burger = sequelize.define("Burger", {
-    burger_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    burger_name: DataTypes.STRING,
     devoured: {
       type: DataTypes.BOOLEAN,
-      // defaultValue is a flag that defaults a new todos complete value to false if
-      // it isn't supplied one
       defaultValue: false
+    }
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // associations can be defined here
+      }
     }
   });
   return Burger;
